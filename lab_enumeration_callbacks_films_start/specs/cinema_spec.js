@@ -44,10 +44,26 @@ describe('Cinema', function () {
     const actual = cinema.findGenre('drama');
     assert.deepStrictEqual(actual, [moonlight, trainspotting])
   });
-  
-  it('should be able to check whether there are some films from a particular year');
-  it('should be able to check whether there are no films from a particular year');
-  it('should be able to check whether all films are over a particular length');
-  it('should be able to calculate total running time of all films');
+
+  it('should be able to check whether there are some films from a particular year', function () {
+    const actual = cinema.findYear(2017);
+    assert.deepStrictEqual(actual,true)
+  });
+
+  it('should be able to check whether there are no films from a particular year', function () {
+    const actual = cinema.findYear(1395);
+    assert.deepStrictEqual(actual, false);
+  });
+
+  it('should be able to check whether all films are over a particular length', function(){
+    const actual = cinema.lengthOver(95);
+    assert.deepStrictEqual(actual, true);
+  });
+
+
+  it('should be able to calculate total running time of all films', function () {
+    const actual = cinema.allFilmLength();
+    assert.strictEqual(actual, 622)
+  });
 
 });
